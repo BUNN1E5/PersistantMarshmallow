@@ -1,8 +1,8 @@
 {
-  "filename": "ModTemplate.dll",
+  "filename": "PersistantMarshmallow.dll",
   "author": "BUNN1E5",
-  "name": "Persistant_Marshmallow",
-  "uniqueName": "Persistant_Marshmallow",
+  "name": "Persistant Marshmallow",
+  "uniqueName": "BUNN1E5.PersistantMarshmallow",
   "version": "0.1.0",
   "owmlVersion": "2.3.2"
 }

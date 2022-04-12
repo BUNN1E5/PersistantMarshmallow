@@ -1,28 +1,24 @@
-﻿using OWML.Common;
+﻿using System;
+using OWML.Common;
 using OWML.ModHelper;
+using UnityEngine;
 
 namespace PersistantMarshmallow
 {
     public class PersistantMarshmallow : ModBehaviour
     {
-        private void Awake()
-        {
-            // You won't be able to access OWML's mod helper in Awake.
-            // So you probably don't want to do anything here.
-            // Use Start() instead.
-        }
-
         private void Start()
         {
-            // Starting here, you'll have access to OWML's mod helper.
             ModHelper.Console.WriteLine($"{nameof(PersistantMarshmallow)} is loaded!", MessageType.Success);
 
-            ModHelper.HarmonyHelper.AddPrefix<Marshmallow>("Shrivel", typeof(PersistantMarshmallow), "Shrivel");
+            ModHelper.HarmonyHelper.AddPostfix<RoastingStickController>("Awake", typeof(PersistantMarshmallow), "RoastingStickAwakePostfix");
         }
 
-        public static bool Shrivel(Marshmallow __instance) {
-            return false;
+        public static void RoastingStickAwakePostfix(RoastingStickController __instance)
+        {
+            SelfDestruct selfDestruct = __instance._mallowBodyPrefab.GetComponent<SelfDestruct>();
+            selfDestruct._secondsUntilSelfDestruct = Mathf.Infinity;
         }
-        
+
     }
 }
