@@ -17,7 +17,7 @@ namespace PersistantMarshmallow
         public static void RoastingStickAwakePostfix(RoastingStickController __instance)
         {
             SelfDestruct selfDestruct = __instance._mallowBodyPrefab.GetComponent<SelfDestruct>();
-            selfDestruct._secondsUntilSelfDestruct = Mathf.Infinity;
+            selfDestruct.enabled = false;
         }
 
     }
